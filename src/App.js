@@ -1,21 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import data from './data'
 import Previous from'./components/Previous'
 import Next from './components/Next'
 import './App.css';
 
 export default class App extends Component{
+  
   constructor(){
     super()
-
     this.state={
       poeple:data,
       index:0
     }
+    this.nextperson = this.nextperson.bind(this)
+    this.personbefore = this.personbefore.bind(this)
   }
 
-  render(){
+  nextperson(){
+    if (this.state.index >= 24){
+      this.setState ({
+        index:24
+      })
+    }else{
+    this.setState({
+      index:this.state.index+1
+      })}
+  }
+
+  personbefore(){
+    if(this.state.index <= 0){
+      this.setState({
+        index:0
+      })
+    }else{
+      this.setState({
+        index: this.state.index-1
+    })}
+  }
+
+    render(){
     const nameCard = this.state.poeple.map(element => {
       return <div 
       key={element.id} className='people-container'>
@@ -35,6 +59,11 @@ export default class App extends Component{
     })
     
       return (
-    <div>{nameCard[this.state.index]}</div>
+    <div>
+      {nameCard[this.state.index]}
+      <Previous personbefore = {this.personbefore}/>
+      <Next nextperson= {this.nextperson}/>
+    </div>
     )
+ 
       }}

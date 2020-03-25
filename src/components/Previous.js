@@ -1,13 +1,6 @@
-import React, {Component} from 'react';
-import data from '../data'
-import App from '../App'
+import React from 'react';
 
-export default class Previous extends Component{
-
-    OnePersonBefor(){
-        this.setState = {
-            leveldown:data
-        }
-    }
-
+function Previousone (props){
+return <button onClick={props.personbefore}>Previous</button>
 }
+export default Previousone

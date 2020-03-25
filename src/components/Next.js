@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
-import data from '../data'
+import React from 'react';
 
 
-export default class Next extends Component{
-    
-
+function Nextone (props){
+return <button onClick={props.nextperson}>Next</button>
 }
+export default Nextone
